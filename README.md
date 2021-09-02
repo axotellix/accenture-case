@@ -1,2 +1,2 @@
-# accenture-case
-Hackathon project
+# Проект команды Bolognese по кейсу Accenture
+Accenture project
