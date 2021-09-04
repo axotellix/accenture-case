@@ -1,0 +1,24 @@
+
+// [ PRESETS ]
+@import 'Normalize.css';
+@import 'variables';
+@import 'functions';
+@import 'mixins';
+@import 'customs';
+
+
+// [ INTERFACE ]
+@import 'interface';
+
+
+// [ GENERAL ]
+@import 'styles';
+
+
+// [ COMPONENTS ]
+@import 'components/modal';
+@import 'components/header';
+@import 'components/taskboard';
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/form';

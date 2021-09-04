@@ -1,0 +1,22 @@
+
+// [ SCROLLBAR ]
+::-webkit-scrollbar {
+    width: 7px;
+    cursor: alias;
+}
+
+::-webkit-scrollbar-thumb {
+    background: lighten($dark, 10%);
+    border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: lighten($dark, 7%);
+    transition: background 0.25s ease-in;
+}
+
+::-webkit-scrollbar-track {
+    border: none;
+    background: transparent;
+}
+  

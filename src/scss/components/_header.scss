@@ -1,0 +1,33 @@
+
+// [ HEADER ]
+.header { 
+    height: 50px;
+    margin-bottom: var(--m-small);
+    padding: 0 var(--m-small);
+    background: $white;
+    color: $dark;
+    @include flex-align(space-between);
+    @include box-shadow;
+}
+
+.header .logo {
+    font-size: 2rem;
+    font-weight: $f-bold;
+}
+.header .theme-controller {
+    @include flex-align(space-between);
+
+    a, span {
+        color: lighten($dark, 10%);
+        font-size: 1.6rem;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+    a:hover {
+        opacity: 0.8;
+    }
+    a.active {
+        color: $dark;
+        font-weight: $f-bold;
+    }
+}

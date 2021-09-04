@@ -1,0 +1,9 @@
+
+// [ MODAL ]
+.modal {
+    z-index: 9999;
+    transition: all 0.25s;
+    @include stretch(fixed);
+    @include glass(3px, 0.7, $black);
+    @include flex-align;
+}

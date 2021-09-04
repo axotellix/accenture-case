@@ -1,0 +1,46 @@
+
+// [ COLOURS ]:
+
+$green:     #29b385;
+$blue:      #5190ee;
+$red:       #f15e83;
+$white:     #ccd5e4;
+$grey:      #36445a;
+$dark:      #1c2533;
+$black:     #030405;
+
+
+// [ FONTS ]:
+
+$f-size: 10px;
+$f-body:    'Montserrat', sans-serif;
+$font: $f-size $f-body;
+$f-lite:        300;
+$f-normal:      400;
+$f-medium:      500;
+$f-semibold:    600;
+$f-bold:        700;
+$f-extra-bold:  800;
+$f-black:       900;
+
+
+// [ SIZES ]:
+
+$mb: 576px;
+$sm: 768px;
+$md: 900px;
+$lg: 1200px;
+$w: $lg;
+
+
+// [ MARGINS ]:
+
+:root {
+
+    --m-tiny:   20px;
+    --m-small:  50px;
+    --m-medium: 70px;
+    --m-big:    100px;
+    --m-large:  125px;
+
+}
