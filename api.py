@@ -79,10 +79,6 @@ while(menu != 0):
 		cap = requests.get("https://query1.finance.yahoo.com/v7/finance/quote?formatted=true&crumb=qQMEtw/8z/0&lang=en-US&region=US&symbols=" + company_name + "&fields=marketCap&corsDomain=finance.yahoo.com", headers=headers).json()
 		cap = cap['quoteResponse']['result'][0]['marketCap']['fmt']
 		print(cap)
-		#cap = requests.get("https://finance.yahoo.com/quote/" + company_name + "/key-statistics?p=" + company_name, headers=headers)
-		#start = cap.text.find("underlyingSymbol")+20
-		#step = cap.text[start:].find('fmt')
-		#print("Капитализация: ", cap.text[start+step+6:start+step+6+cap.text[start+step+6:].find("\"")])
 
 	elif(menu == 6):
 		# Долг/капитал акции
