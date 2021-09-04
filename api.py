@@ -111,7 +111,7 @@ while(menu != 0):
 		# Ребалансировка портфеля (рекомендации)
 		input_name = input("Введите username пользователя (user1, user2): ")
 		user = cursor.execute("SELECT user_id,fullname,invest_type FROM users WHERE username='" + input_name + "';").fetchall()[0]
-		user_assets = cursor.execute("SELECT stocks,count FROM assets WHERE user_id=1").fetchall()
+		user_assets = cursor.execute("SELECT stocks,count FROM assets WHERE user_id=" + str(user[0])).fetchall()
 		user1 = {"name": user[1], "stocks": {i[0]: i[1] for i in user_assets}, "type": user[2]}
 		print(user1)
 
@@ -151,7 +151,7 @@ while(menu != 0):
 				for i in user1['stocks']:
 					other_count += user1['stocks'][i]
 			print("Портфель состоит на " + str(obligs_percent) + "% из облигаций и из акций на " + str(100 - obligs_percent) + "%")
-
+			
 			i = 0 # счетчик размера рекомендаций
 			if(user1['type'] == 1):
 				# Ультраконсервативный тип инвестора
@@ -167,13 +167,24 @@ while(menu != 0):
 				if(i//1000 > 0 and i > min_different): # ~1000 - цена облигаций  ОФЗ и многих других
 					print("Закупка " + str(i//1000) + " облигаций ОФЗ обеспечит диверсификацию портфеля и снизит риски, а также позволит поднять аллокацию облигаций до рекомендуемого уровня ~80%.")
 					print("Также можно продать какие-либо акции на " + str(i) + " руб.")
+					
+					# Выбираем акции для продажи (фиксация прибыли)
+					for company_name in company_names:
+						if(company_name != "OFZ"):
+							prices_month = json.loads(requests.get("https://investcab.ru/api/chistory?symbol=" + company_name + "&resolution=D&from=" + str(start_time) + "&to=" + str(end_time)).json())['c'][-30:] # график за месяц
+							increase = int((prices_month[-1] / prices_month[0] - 1) * 100) # изменение за месяц в процентах
+							if(increase > 8):
+								print(company_name + " (" + str(increase) + "%)")
+					if(increase > 8):
+						print("Перечисленные акции предложены к продаже, так как достигнут стратегический максимум поднятия цены 8-15%.")
+						print("Данный максимум сигнализирует о возможной переоценнености акции и ее будущей потере в цене.")
 				else:
 					i = 0
 					while(int(100*((i + other_count)/(other_count + obligs_count))) < 20):
 						i += 5
 					if(i > min_different):
 						print("Для увеличения доходности можно докупить акций на ~" + str(i) + " руб., что также позволит поднять аллокацию акций до рекомендуемого уровня ~20%")
-						print("Лучшие прогнозы в портфеле у компании " + max_target_name + ". В среднем ожидается рост " + str(100-int(increase*100)) + "%")
+						print("Лучшие прогнозы в портфеле у компании " + max_target_name + ". В среднем ожидается рост " + str(100-int(max_target*100)) + "%")
 					else:
 						print("Ваш портфель в порядке.")
 
@@ -185,13 +196,24 @@ while(menu != 0):
 				if(i//1000 > 0 and i > min_different): # ~1000 - цена облигаций ОФЗ и многих других
 					print("Закупка " + str(i//1000) + " облигаций ОФЗ обеспечит диверсификацию портфеля и снизит риски, а также позволит поднять аллокацию облигаций до рекомендуемого уровня ~50%.")
 					print("Также можно продать какие-либо акции на " + str(i) + " руб.")
+					
+					# Выбираем акции для продажи (фиксация прибыли)
+					for company_name in company_names:
+						if(company_name != "OFZ"):
+							prices_month = json.loads(requests.get("https://investcab.ru/api/chistory?symbol=" + company_name + "&resolution=D&from=" + str(start_time) + "&to=" + str(end_time)).json())['c'][-30:] # график за месяц
+							increase = int((prices_month[-1] / prices_month[0] - 1) * 100) # изменение за месяц в процентах
+							if(increase > 8):
+								print(company_name + " (" + str(increase) + "%)")
+					if(increase > 8):
+						print("Перечисленные акции предложены к продаже, так как достигнут стратегический максимум поднятия цены 8-15%.")
+						print("Данный максимум сигнализирует о возможной переоценнености акции и ее будущей потере в цене.")
 				else:
 					i = 0
 					while(int(100*((i + other_count)/(other_count + obligs_count))) < 50):
 						i += 5
 					if(i > min_different):
 						print("Для увеличения доходности можно докупить акций на ~" + str(i) + " руб., что также позволит поднять аллокацию акций до рекомендуемого уровня ~50%")
-						print("Лучшие прогнозы в портфеле у компании " + max_target_name + ". В среднем ожидается рост " + str(100-int(increase*100)) + "%")
+						print("Лучшие прогнозы в портфеле у компании " + max_target_name + ". В среднем ожидается рост " + str(100-int(max_target*100)) + "%")
 					else:
 						print("Ваш портфель в порядке.")
 
@@ -203,13 +225,24 @@ while(menu != 0):
 				if(i//1000 > 0 and i > min_different): # ~1000 - цена облигаций ОФЗ и многих других
 					print("Закупка " + str(i//1000) + " облигаций ОФЗ обеспечит диверсификацию портфеля и снизит риски, а также позволит поднять аллокацию облигаций до рекомендуемого уровня ~20%.")
 					print("Также можно продать какие-либо акции на " + str(i) + " руб.")
+
+					# Выбираем акции для продажи (фиксация прибыли)
+					for company_name in company_names:
+						if(company_name != "OFZ"):
+							prices_month = json.loads(requests.get("https://investcab.ru/api/chistory?symbol=" + company_name + "&resolution=D&from=" + str(start_time) + "&to=" + str(end_time)).json())['c'][-30:] # график за месяц
+							increase = int((prices_month[-1] / prices_month[0] - 1) * 100) # изменение за месяц в процентах
+							if(increase > 8):
+								print(company_name + " (" + str(increase) + "%)")
+					if(increase > 8):
+						print("Перечисленные акции предложены к продаже, так как достигнут стратегический максимум поднятия цены 8-15%.")
+						print("Данный максимум сигнализирует о возможной переоценнености акции и ее будущей потере в цене.")
 				else:
 					i = 0
 					while(int(100*((i + other_count)/(other_count + obligs_count))) < 80):
 						i += 5
 					if(i > min_different):
 						print("Для увеличения доходности можно докупить акций на ~" + str(i) + " руб., что также позволит поднять аллокацию акций до рекомендуемого уровня ~80%")
-						print("Лучшие прогнозы в портфеле у компании " + max_target_name + ". В среднем ожидается рост " + str(100-int(increase*100)) + "%" )
+						print("Лучшие прогнозы в портфеле у компании " + max_target_name + ". В среднем ожидается рост " + str(100-int(max_target*100)) + "%" )
 					else:
 						print("Ваш портфель в порядке.")
 
