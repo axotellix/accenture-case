@@ -8,5 +8,5 @@
 4) Ребалансировка портфеля (анализ портфеля и его соответствия целям пользователя, а также рекомендации при несоответствии)
 5) 
 
-## [Frontend][https://github.com/keworr/accenture-case/tree/front]
+## [Frontend](https://github.com/keworr/accenture-case/tree/front)
 Фронтенд часть проекта
