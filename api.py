@@ -116,7 +116,7 @@ while(menu != 0):
 
 	elif(menu == 9):
 		# Ребалансировка портфеля (рекомендации)
-		company_names = input("Введите список своих акций через пробел (AAPL TSLA EOAN@DE): ").split(' ')
+		company_names = input("Введите список своих акций через пробел (AAPL TSLA MSFT): ").split(' ')
 		invest_type = int(input("""Выберите ваш профиль инвестирования:
 1 - Ультраконсервативный (сохранить и сберечь средства)
 2 - Консервативный (медленный и стабильный рост)
@@ -227,6 +227,7 @@ while(menu != 0):
 		print(user1)
 		if(int(input("Запустить ребалансировку портфеля пользователя? \n1 - Да\nEnter: "))):
 			other_count = 0
+			obligs_count = 0
 			company_names = [i for i in user1['stocks']]
 			if(company_names.count('ОФЗ') != 0):
 				obligs_count = user1['stocks']['ОФЗ']
@@ -234,7 +235,9 @@ while(menu != 0):
 					other_count += user1['stocks'][i]
 				other_count -= obligs_count
 				obligs_percent = int(100 * (obligs_count / (other_count + obligs_count)) )
-
+			else:
+				for i in user1['stocks']:
+					other_count += user1['stocks'][i]
 			print("Портфель состоит на " + str(obligs_percent) + "% из облигаций и из акций на " + str(100 - obligs_percent) + "%")
 
 			# user1 = userN # раскомментировать для изменения пользователя
@@ -242,7 +245,8 @@ while(menu != 0):
 			i = 0
 			if(user1['type'] == 1):
 				# Ультраконсервативный тип инвестора
-				print("Рекомендуем продать акции и оставить в портфеле только облигации.")
+				if(other_count > 1000):
+					print("Рекомендуем оставить в портфеле только облигации для минимизации рисков.")
 
 			elif(user1['type'] == 2):
 				# Консервативный тип инвестора
@@ -297,10 +301,12 @@ while(menu != 0):
 
 			elif(user1['type'] == 5):
 				# Ультраагресивный тип инвестора
-				print("Рекомендуем продать облигации и оставить в портфеле только акции и фонды.")
+				if(obligs_count > 1000):
+					print("Рекомендуем оставить в портфеле только акции и фонды.")
 
-		
-		
-		
+				
+
+				
+				
 		
 		
