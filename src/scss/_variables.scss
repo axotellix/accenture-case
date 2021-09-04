@@ -1,13 +1,15 @@
 
 // [ COLOURS ]:
 
-$green:     #29b385;
-$blue:      #5190ee;
-$red:       #f15e83;
-$white:     #ccd5e4;
-$grey:      #36445a;
-$dark:      #1c2533;
-$black:     #030405;
+$dark:          #0A101C;
+$red:           #FC3E4B;
+$orange:        #FF6666;
+$green:         #44FF84;
+$slight-purple: #F6C7FF;
+$white:         #FFFFFF;
+$blurred-dark:  rgba(#1C2D4B, 0.2);
+$purple:        rgba(#EE6EFA, 0.7);
+$inactive:      rgba(#FFFFFF, 0.5);
 
 
 // [ FONTS ]:
@@ -39,8 +41,8 @@ $w: $lg;
 
     --m-tiny:   20px;
     --m-small:  50px;
-    --m-medium: 70px;
-    --m-big:    100px;
-    --m-large:  125px;
+    --m-medium: 60px;
+    --m-big:    80px;
+    --m-large:  120px;
 
 }
