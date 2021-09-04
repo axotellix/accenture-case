@@ -13,7 +13,7 @@ menu = None
 end_time = int(time.time())
 start_time = end_time - 31104060 # год в UNIX
 user1 = {"name": "Ivan Ivanov", "stocks": {"AAPL": 90540, "TSLA": 20500, "ОФЗ": 60000}, "type": 2}
-user2 = {"name": "Nick P.", "stocks": {"AAON": 410, "PXD": 4000, "FMC": 1300, "ОФЗ": 10000}, "type": 3}
+user2 = {"name": "Nick P.", "stocks": {"AAPL": 1300, "PXD": 4000, "FMC": 1300, "ОФЗ": 20000, "MSFT": 3190}, "type": 3}
 user1 = user2
 
 while(menu != 0):
@@ -229,6 +229,26 @@ while(menu != 0):
 			other_count = 0
 			obligs_count = 0
 			company_names = [i for i in user1['stocks']]
+
+			max_target = 0
+			max_target_name = ""
+			for company_name in company_names:
+				if(company_name != "ОФЗ"):
+					# Собираем прогнозы
+					headers = {'User-Agent': 'User agent for work'}
+					target = requests.get("https://finance.yahoo.com/quote/" + company_name + "/analysis?p=" + company_name, headers=headers).text
+					start = target.find("targetMeanPrice") # ищем начало целевой цены
+					step = target[start:].find("}")+1 # ищем конец параметра
+					target = float(json.loads(target[start+17:start+step])['fmt'])
+
+					# текущая цена
+					prices = json.loads(requests.get("https://investcab.ru/api/chistory?symbol=" + company_name + "&resolution=D&from=" + str(start_time) + "&to=" + str(end_time)).json())['c']
+
+					increase = float(prices[-1]) / target
+					if(increase > max_target):
+						max_target = increase
+						max_target_name = company_name
+
 			if(company_names.count('ОФЗ') != 0):
 				obligs_count = user1['stocks']['ОФЗ']
 				for i in user1['stocks']:
@@ -262,6 +282,7 @@ while(menu != 0):
 						i += 5
 					if(i > min_different):
 						print("Для увеличения доходности можно докупить акций на " + str(i) + " руб., что также позволит поднять аллокацию акций до рекомендуемого уровня ~20%")
+						print("Лучшие прогнозы в портфеле у компании " + max_target_name + ". Ожидается рост " + str(100-int(increase*100)) + "%")
 					else:
 						print("Ваш портфель в порядке.")
 
@@ -279,6 +300,7 @@ while(menu != 0):
 						i += 5
 					if(i > min_different):
 						print("Для увеличения доходности можно докупить акций на " + str(i) + " руб., что также позволит поднять аллокацию акций до рекомендуемого уровня ~50%")
+						print("Лучшие прогнозы в портфеле у компании " + max_target_name + ". Ожидается рост " + str(100-int(increase*100)) + "%")
 					else:
 						print("Ваш портфель в порядке.")
 
@@ -296,13 +318,14 @@ while(menu != 0):
 						i += 5
 					if(i > min_different):
 						print("Для увеличения доходности можно докупить акций на " + str(i) + " руб., что также позволит поднять аллокацию акций до рекомендуемого уровня ~80%")
+						print("Лучшие прогнозы в портфеле у компании " + max_target_name + ". Ожидается рост " + str(100-int(increase*100)) + "%")
 					else:
 						print("Ваш портфель в порядке.")
 
 			elif(user1['type'] == 5):
 				# Ультраагресивный тип инвестора
 				if(obligs_count > 1000):
-					print("Рекомендуем оставить в портфеле только акции и фонды.")
+					print("Рекомендуем оставить в портфеле только акции и фонды для повышения доходности.")
 
 				
 
