@@ -488,6 +488,11 @@
   pointer-events: none;
 }
 
+.blur, .sidebar {
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+
 ::-webkit-scrollbar {
   width: 7px;
   cursor: alias;
@@ -529,4 +534,32 @@ a {
   width: 30px;
   height: 30px;
   margin: 0 5px;
+}
+
+.sidebar {
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  padding: var(--m-big) var(--m-tiny);
+  top: 0;
+  left: 0;
+  background: rgba(28, 45, 75, 0.2);
+  border-right: 1px solid rgba(57, 86, 137, 0.2);
+}
+
+.sidebar .ava-img {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  background: #0A101C;
+  border-radius: 120px;
+}
+
+.sidebar .caption {
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: var(--m-small);
+  text-align: center;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.5);
 }

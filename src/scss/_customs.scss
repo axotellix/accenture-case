@@ -192,3 +192,9 @@
   opacity: 0;
   pointer-events: none;
 }
+
+
+// [ effects ]
+.blur {
+  backdrop-filter: blur(4px);
+}

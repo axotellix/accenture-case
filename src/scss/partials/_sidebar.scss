@@ -1,2 +1,29 @@
 
 // [ SIDEBAR ]
+.sidebar {
+    @extend .blur;
+    
+    position: fixed;
+    width: 200px; height: 100%; 
+    padding: var(--m-big) var(--m-tiny);
+    top: 0; left: 0;
+    background: $blur-blue;
+    border-right: 1px solid rgba(#395689, 0.2);
+}
+
+// [ img: avatar ]
+.sidebar .ava-img {
+    width: 120px; height: 120px;
+    margin: 0 auto;
+    background: $dark;
+    border-radius: 120px;
+}
+// [ caption: person name ]
+.sidebar .caption {
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: var(--m-small);
+    text-align: center;
+    font-size: 1.5rem; 
+    color: $inactive;
+}
