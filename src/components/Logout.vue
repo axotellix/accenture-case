@@ -4,7 +4,7 @@
     <div class='avatar'>
 
         <!-- personal data -->
-        Avatar
+        <a href="" class = 'logout'>Выйти</a>
 
     </div>
 </template>
@@ -15,7 +15,7 @@
 
 export default {
     // [ Component name ]
-    name: 'Avatar',
+    name: 'Logout',
 
     // [ Properties ]
     props: {

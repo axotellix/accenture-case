@@ -11,19 +11,81 @@
     border-right: 1px solid rgba(#395689, 0.2);
 }
 
-// [ img: avatar ]
-.sidebar .ava-img {
+
+// [ avatar ]
+  // img: avatar
+.avatar .ava-img {
     width: 120px; height: 120px;
     margin: 0 auto;
     background: $dark;
     border-radius: 120px;
 }
-// [ caption: person name ]
-.sidebar .caption {
+  // caption: person name
+.avatar .caption {
     margin: 0 auto;
     margin-top: 10px;
     margin-bottom: var(--m-small);
     text-align: center;
-    font-size: 1.5rem; 
+    font-size: $fs-tiny;
     color: $inactive;
+}
+
+
+// [ navigation bar & notifications ]
+.notifications {
+    background: $blur-blue;
+    border-radius: 7px;
+
+    .heading {
+        margin: 0;
+        text-align: center;
+        color: $lite-purple;
+        font-size: 1.5rem;
+    }
+}
+  // navigation & notifications wrapper
+.navbar, .notifications {
+    margin: 15px auto;
+    margin-bottom: var(--m-small);
+    width: 100%; height: auto;
+    padding: var(--m-tiny);
+}
+  // menu items
+.navbar .menu-item, .notifications .menu-item {
+    margin: 15px auto;
+    list-style: none;
+
+    a { 
+        font-size: $fs-tiny;
+        color: $inactive;
+    }
+    a:hover {
+        color: lighten($inactive, 5%);      //FIX: hover effect
+    }
+    
+}
+.navbar .menu-item.active a, .notifications .menu-item.active a {
+    position: relative;
+    color: $lite-purple;
+    font-weight: $f-medium;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 35px; height: 35px;
+        background: $purple;
+        border-radius: 5px;
+        z-index: -1;
+
+        @include align(left, center, absolute, -13px)
+    }
+}
+
+
+// [ button: logout ]
+.logout {
+    font-size: 1.5rem;
+    color: $red;
+    margin: 0 auto;
+    text-align: center;
 }

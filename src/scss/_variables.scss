@@ -5,7 +5,7 @@ $dark:          #0A101C;
 $red:           #FC3E4B;
 $orange:        #FF6666;
 $green:         #44FF84;
-$slight-purple: #F6C7FF;
+$lite-purple: #F6C7FF;
 $white:         #FFFFFF;
 $blur-blue:     rgba(#1C2D4B, 0.2);
 $purple:        rgba(#EE6EFA, 0.7);
@@ -14,9 +14,12 @@ $inactive:      rgba(#FFFFFF, 0.5);
 
 // [ FONTS ]:
 
+  // [ font-families ]:
 $f-size: 10px;
 $f-body:    'Montserrat', sans-serif;
 $font: $f-size $f-body;
+
+  // [ font-weights ]:
 $f-lite:        300;
 $f-normal:      400;
 $f-medium:      500;
@@ -24,6 +27,9 @@ $f-semibold:    600;
 $f-bold:        700;
 $f-extra-bold:  800;
 $f-black:       900;
+
+  // [ font-sizes ]:
+$fs-tiny:       1.5rem;
 
 
 // [ SIZES ]:

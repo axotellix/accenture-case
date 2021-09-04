@@ -1,10 +1,9 @@
 
 <!-- [ TEMPLATE ] -->
 <template>
-    <div class='avatar'>
+    <div class='logo'>
 
-        <!-- personal data -->
-        Avatar
+        <!-- img: logo -->
 
     </div>
 </template>
@@ -15,7 +14,7 @@
 
 export default {
     // [ Component name ]
-    name: 'Avatar',
+    name: 'Logo',
 
     // [ Properties ]
     props: {

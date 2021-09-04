@@ -547,7 +547,7 @@ a {
   border-right: 1px solid rgba(57, 86, 137, 0.2);
 }
 
-.sidebar .ava-img {
+.avatar .ava-img {
   width: 120px;
   height: 120px;
   margin: 0 auto;
@@ -555,11 +555,69 @@ a {
   border-radius: 120px;
 }
 
-.sidebar .caption {
+.avatar .caption {
   margin: 0 auto;
   margin-top: 10px;
   margin-bottom: var(--m-small);
   text-align: center;
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.5);
+}
+
+.notifications {
+  background: rgba(28, 45, 75, 0.2);
+  border-radius: 7px;
+}
+.notifications .heading {
+  margin: 0;
+  text-align: center;
+  color: #F6C7FF;
+  font-size: 1.5rem;
+}
+
+.navbar, .notifications {
+  margin: 15px auto;
+  margin-bottom: var(--m-small);
+  width: 100%;
+  height: auto;
+  padding: var(--m-tiny);
+}
+
+.navbar .menu-item, .notifications .menu-item {
+  margin: 15px auto;
+  list-style: none;
+}
+.navbar .menu-item a, .notifications .menu-item a {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+.navbar .menu-item a:hover, .notifications .menu-item a:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar .menu-item.active a, .notifications .menu-item.active a {
+  position: relative;
+  color: #F6C7FF;
+  font-weight: 500;
+}
+.navbar .menu-item.active a::before, .notifications .menu-item.active a::before {
+  content: "";
+  display: block;
+  width: 35px;
+  height: 35px;
+  background: rgba(238, 110, 250, 0.7);
+  border-radius: 5px;
+  z-index: -1;
+  position: absolute;
+  left: -13px;
+  top: 50%;
+  -webkit-transform: translateX(0) translateY(-50%);
+          transform: translateX(0) translateY(-50%);
+}
+
+.logout {
+  font-size: 1.5rem;
+  color: #FC3E4B;
+  margin: 0 auto;
+  text-align: center;
 }

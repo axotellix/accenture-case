@@ -1,12 +1,16 @@
 
 <!-- [ TEMPLATE ] -->
 <template>
-    <div class='avatar'>
+    <nav class='navbar'>
 
-        <!-- personal data -->
-        Avatar
+        <!-- navigation items -->
+        <ul>
+            <li class = 'menu-item active'><a href="">Мой портфель</a></li>
+            <li class = 'menu-item'><a href="">Обзор активов</a></li>
+            <li class = 'menu-item'><a href="">Мой профиль</a></li>
+        </ul>
 
-    </div>
+    </nav>
 </template>
 
 
@@ -15,7 +19,7 @@
 
 export default {
     // [ Component name ]
-    name: 'Avatar',
+    name: 'Navbar',
 
     // [ Properties ]
     props: {
