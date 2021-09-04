@@ -1,2 +1,42 @@
 
 // [ HEADER ]
+.header {
+    width: 100%; height: 50px;
+    flex-wrap: wrap;
+    gap: var(--m-tiny);
+
+    @include flex-align(flex-start, flex-start)
+}
+
+
+// [ header card ]
+.header-card {
+    @extend .card;
+
+    max-width: max-content;
+    width: auto; min-height: 140px;
+    padding: varset("--m-tiny + 14px");
+    flex-wrap: wrap;
+
+    @include flex-align(flex-start, flex-start, column);
+}
+
+.header-card .card-content {
+    max-width: max-content;
+    flex-wrap: wrap;
+    @include flex-align(flex-start, center);
+}
+.header-card .button {
+    margin-left: var(--m-tiny);
+}
+.header-card .offset {
+    font-size: $fs-small;
+    font-weight: $f-normal;
+}
+.header-card .row {
+    max-width: max-content;
+    margin-bottom: 5px;
+    font-size: $fs-small;
+
+    &:last-of-type { margin-bottom: 0 }
+}

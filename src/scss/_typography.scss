@@ -1,0 +1,23 @@
+
+// [ TYPOGRAPHY ]
+  // [ small caption ]
+h6.caption {
+    margin: 0; margin-bottom: 10px;
+    font-size:   $fs-tiny;
+    font-weight: $f-normal;
+    color: $inactive;
+}
+
+  // [ info to stand out ]
+.mark {
+    font-size: $fs-big;
+    color: $white;
+    font-weight: $f-medium;
+    margin: 0;
+}
+
+  // [ text in "key: value" format ]
+.text-key::after {
+    content: ': ';
+    margin-right: 10px;
+}

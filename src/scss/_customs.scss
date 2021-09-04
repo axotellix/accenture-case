@@ -181,10 +181,23 @@
   max-width: 22px !important;
 } 
 
+
+// [ typography ]
 .widen-font {
   transform: scaleX(1.2);     // crutch: to visually widen 'Syne' font with weight less than 600
   transform-origin: left top;
 }
+
+
+// [ pseudo chars ]
+.char-space-right::after {
+  content: ' ';
+}
+
+
+// [ font-weights ]
+.f-lite   { font-weight: $f-lite !important }
+.f-normal { font-weight: $f-normal !important }
 
 
 // [ visibility ]
@@ -198,3 +211,15 @@
 .blur {
   backdrop-filter: blur(4px);
 }
+
+
+// [ element types ]
+.card {
+  background: $blur-blue;
+  border-radius: 10px;
+}
+
+
+// [ colours ]
+.text-green { color: $green !important }
+.text-red { color: $red !important   }

@@ -5,11 +5,13 @@
     <!-- [ sidebar ] -->
     <Sidebar />
 
-    <!-- [ header ] -->
-    <Header />
+    <section class = 'right-section'>
+        <!-- [ header ] -->
+        <Header />
 
-    <!-- [ content ] -->
-    <Content />
+        <!-- [ content ] -->
+        <Content />
+    </section>
 
 
 </template>

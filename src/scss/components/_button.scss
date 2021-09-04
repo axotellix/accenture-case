@@ -1,0 +1,35 @@
+
+// [ BUTTON ]
+.button {
+    width: 40px; height: 40px;
+    flex-basis: 40px;
+    margin: 0;
+    background: $purple;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: opacity 0.25s;
+
+    @include flex-align;
+
+    .ico {
+        max-width: 15px;
+        fill: $white;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &.red {
+        background: $red;
+        box-shadow: 0 0 18px 2px rgba($red, 0.2);
+    }
+    &.orange {
+        background: $orange;
+        box-shadow: 0 0 18px 2px rgba($orange, 0.2);
+    }
+    &.purple {
+        background: $purple;
+        box-shadow: 0 0 18px 2px rgba($purple, 0.2);
+    }
+}

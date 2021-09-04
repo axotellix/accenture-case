@@ -3,7 +3,7 @@
   --m-tiny: 20px;
   --m-small: 50px;
   --m-medium: 60px;
-  --m-big: 80px;
+  --m-big: 70px;
   --m-large: 120px;
 }
 
@@ -483,6 +483,18 @@
           transform-origin: left top;
 }
 
+.char-space-right::after {
+  content: " ";
+}
+
+.f-lite {
+  font-weight: 300 !important;
+}
+
+.f-normal {
+  font-weight: 400 !important;
+}
+
 .hidden {
   opacity: 0;
   pointer-events: none;
@@ -491,6 +503,39 @@
 .blur, .sidebar {
   -webkit-backdrop-filter: blur(4px);
           backdrop-filter: blur(4px);
+}
+
+.card, .header-card {
+  background: rgba(28, 45, 75, 0.2);
+  border-radius: 10px;
+}
+
+.text-green {
+  color: #44FF84 !important;
+}
+
+.text-red {
+  color: #FC3E4B !important;
+}
+
+h6.caption {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.mark {
+  font-size: 2.2rem;
+  color: #FFFFFF;
+  font-weight: 500;
+  margin: 0;
+}
+
+.text-key::after {
+  content: ": ";
+  margin-right: 10px;
 }
 
 ::-webkit-scrollbar {
@@ -620,4 +665,141 @@ a {
   color: #FC3E4B;
   margin: 0 auto;
   text-align: center;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: var(--m-tiny);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.header-card {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  width: auto;
+  min-height: 140px;
+  padding: calc( var(--m-tiny) + 14px);
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.header-card .card-content {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-card .button {
+  margin-left: var(--m-tiny);
+}
+
+.header-card .offset {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.header-card .row {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  margin-bottom: 5px;
+  font-size: 1.6rem;
+}
+.header-card .row:last-of-type {
+  margin-bottom: 0;
+}
+
+.right-section {
+  width: calc(100% - 200px);
+  height: 100vh;
+  margin-left: 200px;
+  padding: var(--m-big) var(--m-small);
+}
+
+.button {
+  width: 40px;
+  height: 40px;
+  -ms-flex-preferred-size: 40px;
+      flex-basis: 40px;
+  margin: 0;
+  background: rgba(238, 110, 250, 0.7);
+  border-radius: 7px;
+  cursor: pointer;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.button .ico {
+  max-width: 15px;
+  fill: #FFFFFF;
+}
+.button:hover {
+  opacity: 0.8;
+}
+.button.red {
+  background: #FC3E4B;
+  -webkit-box-shadow: 0 0 18px 2px rgba(252, 62, 75, 0.2);
+          box-shadow: 0 0 18px 2px rgba(252, 62, 75, 0.2);
+}
+.button.orange {
+  background: #FF6666;
+  -webkit-box-shadow: 0 0 18px 2px rgba(255, 102, 102, 0.2);
+          box-shadow: 0 0 18px 2px rgba(255, 102, 102, 0.2);
+}
+.button.purple {
+  background: rgba(238, 110, 250, 0.7);
+  -webkit-box-shadow: 0 0 18px 2px rgba(238, 110, 250, 0.2);
+          box-shadow: 0 0 18px 2px rgba(238, 110, 250, 0.2);
 }
