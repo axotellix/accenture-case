@@ -138,12 +138,14 @@ while(menu != 0):
 					# текущая цена
 					prices = json.loads(requests.get("https://investcab.ru/api/chistory?symbol=" + company_name + "&resolution=D&from=" + str(start_time) + "&to=" + str(end_time)).json())['c']
 
+					# отбираем лучший прогноз (% роста)
 					increase = float(prices[-1]) / target
 					if(increase > max_target):
 						max_target = increase
 						max_target_name = company_name
 
 			if(company_names.count('OFZ') != 0):
+				# Считаем, сколько занимают облигации, а сколько акции
 				obligs_count = user1['stocks']['OFZ']
 				for i in user1['stocks']:
 					other_count += user1['stocks'][i]
@@ -154,12 +156,11 @@ while(menu != 0):
 					other_count += user1['stocks'][i]
 			print("Портфель состоит на " + str(obligs_percent) + "% из облигаций и из акций на " + str(100 - obligs_percent) + "%")
 
-			# user1 = userN # раскомментировать для изменения пользователя
-			# счетчик числа рекомендаций
-			i = 0
+			i = 0 # счетчик размера рекомендаций
 			if(user1['type'] == 1):
 				# Ультраконсервативный тип инвестора
 				if(other_count > 1000):
+					# Если есть значимое число акций
 					print("Рекомендуем оставить в портфеле только облигации для минимизации рисков.")
 
 			elif(user1['type'] == 2):
@@ -167,7 +168,7 @@ while(menu != 0):
 				while(int(100*((i + obligs_count)/(other_count + obligs_count))) < 80):
 					i += 5
 				min_different = int(0.05 * (other_count + obligs_count) ) # минимальная разница, которую имеет смысл учитывать - 5% для консервативных
-				if(i//1000 > 0 and i > min_different): # ~1000 - цена облигаций ОФЗ и многих других
+				if(i//1000 > 0 and i > min_different): # ~1000 - цена облигаций  ОФЗ и многих других
 					print("Закупка " + str(i//1000) + " облигаций ОФЗ обеспечит диверсификацию портфеля и снизит риски, а также позволит поднять аллокацию облигаций до рекомендуемого уровня ~80%.")
 					print("Также можно продать какие-либо акции на " + str(i) + " руб.")
 				else:
@@ -219,6 +220,7 @@ while(menu != 0):
 			elif(user1['type'] == 5):
 				# Ультраагресивный тип инвестора
 				if(obligs_count > 1000):
+					# Если есть значимое число облигаций
 					print("Рекомендуем оставить в портфеле только акции и фонды для повышения доходности.")	
 
 				
