@@ -1,14 +1,14 @@
 
-<!-- [ template ] -->
+<!-- [ TEMPLATE ] -->
 <template>
     <div>{{ msg }}</div>
 </template>
 
 
-<!-- [ scripts ] -->
+<!-- [ SCRIPTS ] -->
 <script>
 export default {
-    name: 'HelloWorld',
+    name: 'Header',
     props: {
         msg: String
     }

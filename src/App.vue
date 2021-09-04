@@ -1,18 +1,32 @@
 
-<!-- [ template ] -->
+<!-- [ TEMPLATE ] -->
 <template>
-    <Sidebar msg="Welcome to Your Vue.js App" />
+
+    <!-- [ sidebar ] -->
+    <Sidebar />
+
+    <!-- [ header ] -->
+    <Header />
+
+    <!-- [ content ] -->
+    <Content />
+
+
 </template>
 
 
-<!-- [ scripts ] -->
+<!-- [ SCRIPTS ] -->
 <script>
-import Sidebar from './components/Sidebar.vue'
+import Sidebar from './components/partials/Sidebar'
+import Header from './components/partials/Header'
+import Content from './components/partials/Content'
 
 export default {
     name: 'App',
     components: {
-        Sidebar
+        Sidebar,
+        Header,
+        Content,
     }
 }
 </script>

@@ -8,88 +8,12 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-// [ themes ]
-body.night {
-    background: $dark;
-    color: $white;
-}
-body.light {
-    background: $white;
-    color: $dark;
-
-    .header {
-        background: $dark !important;
-        color: $white;
-
-        a, span {
-            color: lighten($white, 10%);
-        }
-        a.active {
-            color: $white;
-            font-weight: $f-bold;
-        }
-    }
-
-    .taskboard h2 {
-        color: $grey;
-    }
-
-    .button { color: $white }
-
-    .prior-guide div {
-        background: darken($white, 5%);
-        
-        span { color: $dark }
-    }
-
-    .task-card { 
-        background: $white !important;
-    }
-    .task-title, .task-date { 
-        color: lighten($dark, 10%);
-    }
-    .task-description { 
-        color: $dark;
-        font-weight: $f-normal;
-    }
-    .ico {
-        fill: $dark !important;
-    }
-    .ico.edit {
-        fill: $green !important;
-    }
-    .task-group { 
-        background: darken($white, 5%) !important;
-        color: $grey;
-    }
-
-    form { 
-        background: $white;
-    }
-    .form-title {
-        color: $grey;
-    }
-    input, textarea, select {
-        background: darken($white, 5%);
-        color: $dark;
-
-        &:focus {
-            background: #c6cfdf;   
-        }
-    
-        &::-webkit-input-placeholder {
-            color: rgba($dark, 0.4);
-        }
-    }
-    label {
-        color: $grey;
-    }
-}
 
 // [ buttons ]
 a { 
     color: $white;
 }
+
 
 // [ icons ]
 .ico { 

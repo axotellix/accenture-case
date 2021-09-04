@@ -1,21 +1,5 @@
 
 // [ BUTTONS ]
 .button {
-    max-width: max-content;
-    margin-left: 50px;
-    margin-bottom: 50px;
-    padding: 12px 30px;
-    background: $green; 
-    border-radius: 3px;
-    color: $dark;
-    font-size: 1.7rem;
-    font-weight: $f-medium;
-    cursor: pointer;
-
-    &:hover {
-        background: lighten($green, 5%);
-    }
-    &:active {
-        background: $green;
-    }
+    
 }
