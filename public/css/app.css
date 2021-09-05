@@ -371,6 +371,10 @@
   margin-bottom: -50px !important;
 }
 
+.gap-small {
+  gap: var(--m-small);
+}
+
 .center-x {
   margin-left: auto;
   margin-right: auto;
@@ -830,6 +834,11 @@ article section {
   margin-top: var(--m-small);
 }
 
+.group {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 section.col-2 .group {
   display: inline-block;
   margin-right: var(--m-small);
@@ -1062,6 +1071,8 @@ footer {
   position: relative;
   width: 500px;
   height: auto;
+  min-width: 500px;
+  height: auto;
 }
 
 .card-header {
@@ -1279,4 +1290,36 @@ footer {
   fill: #FC3E4B !important;
   -webkit-transform: rotate(135deg);
           transform: rotate(135deg);
+}
+
+.tabs {
+  margin-bottom: var(--m-tiny);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tabs .tab-item {
+  margin-right: var(--m-tiny);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.5rem;
+  font-weight: 400;
+  cursor: pointer;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+}
+.tabs .tab-item:hover {
+  opacity: 0.8;
+}
+.tabs .tab-item.active {
+  color: #F6C7FF;
+  font-weight: 500;
 }

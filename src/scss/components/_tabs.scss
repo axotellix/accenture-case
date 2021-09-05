@@ -1,0 +1,23 @@
+
+// [ TABS ]
+.tabs {
+    margin-bottom: var(--m-tiny);
+    @include flex-align(flex-start);
+}
+.tabs .tab-item {
+    margin-right: var(--m-tiny);
+    color: $inactive;
+    font-size: $fs-tiny;
+    font-weight: $f-normal;
+    cursor: pointer;
+    transition: opacity 0.25s;
+
+    &:hover {
+        opacity: 0.8;
+    }
+    
+    &.active {
+        color: $lite-purple;
+        font-weight: $f-medium;
+    }
+}

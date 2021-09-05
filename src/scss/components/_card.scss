@@ -3,6 +3,7 @@
 .card-big { 
     position: relative;
     width: 500px; height: auto;
+    min-width: 500px; height: auto;
 }
 
 // [ card header: title + note ]

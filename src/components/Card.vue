@@ -11,7 +11,7 @@
 
         <!-- card header -->
         <div class="card-header">
-            <h3 class="card-title">Облигации</h3>
+            <h3 class="card-title">{{ title }}</h3>
             <p class="card-note">
                 <slot name = 'note'></slot>
             </p>
@@ -56,6 +56,10 @@ export default {
         colour: {
             type: String,
             default: 'purple'
+        },
+        title: {
+            type: String,
+            default: 'Актив'
         },
     }
 }

@@ -8,6 +8,9 @@ article section {
     margin-top: var(--m-small);
 }
 
+.group {
+    flex-wrap: wrap;
+}
 section.col-2 .group { 
     display: inline-block;
     margin-right: var(--m-small);

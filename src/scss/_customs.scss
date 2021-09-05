@@ -124,7 +124,9 @@
 .mb--40 { margin-bottom: -40px !important } 
 .mb--50 { margin-bottom: -50px !important } 
 
-
+.gap-small { 
+  gap: var(--m-small);
+}
 // [ alignment ]
   // MARGIN ALIGN: self
 .center-x { margin-left: auto; margin-right: auto }
