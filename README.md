@@ -1,6 +1,6 @@
 ![image](https://user-images.githubusercontent.com/47640060/132115529-d35223b0-8c29-4772-896e-04ff3b57024b.png)
 
-# Реализовано:
+# Описание проекта:
 
 ## [Api](https://github.com/keworr/accenture-case/blob/main/api.py)
 1) Получение информации по акциям через публичный api (график цен, капитализации, дивидендные даты и т.п.) и расчёты (волатильность)
