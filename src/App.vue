@@ -12,6 +12,7 @@
         <!-- [ content ] -->
         <Content>
             <CaseStatus />
+            <Home />
         </Content>
 
         <!-- [ footer ] -->
@@ -33,6 +34,7 @@ import Content from './components/partials/Content'
 
 // [ Pages ]
 import CaseStatus from './pages/CaseStatus'
+import Home from './pages/Home'
 
 export default {
     // [ Component name ]
@@ -47,6 +49,7 @@ export default {
 
         // [ pages ]
         CaseStatus,
+        Home,
     }
 }
 </script>
