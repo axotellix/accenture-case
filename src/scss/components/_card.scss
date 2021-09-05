@@ -36,8 +36,10 @@
 .card-wrapper { 
     @extend .card;
     
+    position: relative;
     width: 100%; height: auto;
     padding: var(--m-tiny);
+    overflow: hidden;
 }
 
 // [ card footer ]

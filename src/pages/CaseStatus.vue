@@ -11,8 +11,8 @@
             <!-- problem stated -->
             <section>
                 <h6 class = 'caption'>Проблема</h6>
-                <p v-if="true"  class = 'mark text-red'>Портфель не сбалансирован</p>
-                <p v-if="false" class = 'mark text-green'>Портфель сбалансирован</p>
+                <p v-if="this.case_status==0"  class = 'mark text-red'>Портфель не сбалансирован</p>
+                <p v-if="this.case_status==1" class = 'mark text-green'>Портфель сбалансирован</p>
             </section>
 
             <!-- infographics -->
@@ -61,8 +61,7 @@
                 <p class = 'mark text-green'>Докупить облигаций</p>
 
                 <p class = 'description'>
-                    Портфель состоит на 70% из акций и на 30% из облигаций. <br><br>
-                    Закупка 76 облигаций ОФЗ сделает ваш портфель более сбалансированным и снизит риски, что соответствует Вашей цели.
+                    {{  this.message }}
                 </p>
             </section>
         </article>
@@ -101,6 +100,30 @@ export default {
         Infographics,
         Card,
         Asset,
+    },
+
+    // [ data ]
+    data() {
+        return {
+            case_status: 0,
+            message: '',
+        }
+    },
+
+    // [ on: create ]
+    async created() {
+        // get > person data
+        let req  = await fetch('https://reworr.pythonanywhere.com/api/rebalance/user1');
+        let case_summary = await req.json();
+
+        // get > case summary
+        let status  = case_summary.status;
+        let message = case_summary.description;
+
+        this.case_status = status;
+        this.message     = message;
+
+        console.log(status);
     }
 }
 </script>

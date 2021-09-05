@@ -5,9 +5,13 @@
 
         <!-- navigation items -->
         <ul>
-            <li class = 'menu-item active'><a href="">Мой портфель</a></li>
-            <li class = 'menu-item'><a href="">Обзор активов</a></li>
-            <li class = 'menu-item'><a href="">Мой профиль</a></li>
+            <li class = 'menu-item' 
+                :class="this.page == 'Home' ? 'active' : ''"
+            >
+                <a href="">Мой портфель</a>
+            </li>
+            <li class = 'menu-item' :class="this.page == 'Overview' ? 'active' : ''"><a href="">Обзор активов</a></li>
+            <li class = 'menu-item' :class="this.page == 'Profile' ? 'active' : ''"><a href="">Мой профиль</a></li>
         </ul>
 
     </nav>
@@ -23,7 +27,18 @@ export default {
 
     // [ Properties ]
     props: {
-        msg: String
+        page: String
+    },
+
+    data() {
+        //next_page: ''
+    },
+
+    // [ Methods ]
+    methods: {
+        setPage() {
+            this.$emit('setPage', 'CaseStatus');
+        }
     }
 }
 </script>

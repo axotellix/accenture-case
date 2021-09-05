@@ -6,80 +6,29 @@
     <main>
         <article>
             <!-- heading -->
-            <h2 class = 'heading mt-50'>Мой портфель</h2>
-
-            <!-- problem stated -->
-            <section>
-                <h6 class = 'caption'>Проблема</h6>
-                <p v-if="true"  class = 'mark text-red'>Портфель не сбалансирован</p>
-                <p v-if="false" class = 'mark text-green'>Портфель сбалансирован</p>
-            </section>
-
-            <!-- infographics -->
-            <section class = 'col-2'>
-                <!-- infographics: your case -->
-                <div class="group">
-                    <h6 class = 'caption mb-20'>Ваш портфель:</h6>
-                    <div class = 'infographics-container'>
-                        <Infographics
-                            colour="red"
-                            subject="Акции"
-                            estimation=70
-                            measurement_sign="%"
-                        />
-                        <Infographics
-                            colour="purple"
-                            subject="Облигации"
-                            estimation=30
-                            measurement_sign="%"
-                        />
-                    </div>
-                </div>
-                <!-- infographics: goal case -->
-                <div class="group">
-                    <h6 class = 'caption mb-20'>Целевой портфель:</h6>
-                    <div class = 'infographics-container'>
-                        <Infographics
-                            colour="red"
-                            subject="Акции"
-                            estimation=60
-                            measurement_sign="%"
-                        />
-                        <Infographics
-                            colour="purple"
-                            subject="Облигации"
-                            estimation=40
-                            measurement_sign="%"
-                        />
-                    </div>
-                </div>
-            </section>
-        </article>
-
-        <article>
-            <!-- heading -->
             <h2 class = 'heading'>Мой портфель</h2>
 
             <div class="group flex flex-row gap-small">
                 <!-- bonds -->
                 <Card title = 'Акции' colour = 'red'>
                     <template v-slot:content>
-                        <Asset status = 'up' />
-                        <Asset status = 'down' />
-                    </template>
-                </Card>
-                <!-- shares -->
-                <Card title = 'Фонды' colour = 'orange'>
-                    <template v-slot:content>
-                        <Asset status = 'up' />
-                        <Asset status = 'down' />
+                        <Asset 
+                            :key="company" 
+                            :company="company"
+                            v-for="company in this.assets.bonds_companies" 
+                            status = 'up' 
+                        />
                     </template>
                 </Card>
                 <!-- stocks -->
                 <Card title = 'Облигации' colour = 'purple'>
                     <template v-slot:content>
-                        <Asset status = 'up' />
-                        <Asset status = 'down' />
+                        <Asset 
+                            :key="company" 
+                            :company="company"
+                            v-for="company in this.assets.stocks_companies" 
+                            status = 'up' 
+                        />
                     </template>
                 </Card>
             </div>
@@ -105,7 +54,6 @@
 
 <!-- [ SCRIPTS ] -->
 <script>
-import Infographics from './../components/Infographics'
 import Card from './../components/Card'
 import Asset from './../components/Asset'
 import MyAssets from './../components/mycase/MyAssets'
@@ -116,10 +64,38 @@ export default {
 
     // [ Child components ]
     components: {
-        Infographics,
         Card,
         Asset,
         MyAssets,
+    },
+
+    // [ data ]
+    data() {
+        return {
+            assets: {
+                bonds: {},
+                stocks: {},
+                bonds_companies: [],
+                stocks_companies: [],
+            }
+        }
+    },
+
+    // [ on: create ]
+    async created() {
+        // get > person data
+        let req = await fetch('https://reworr.pythonanywhere.com/api/userinfo/user1');
+        let person = await req.json();
+
+        // get > bonds & stocks
+        let bonds  = person.bonds;
+        let stocks = person.stocks;
+
+        this.assets.bonds  = bonds;
+        this.assets.stocks = stocks;
+
+        this.assets.bonds_companies  = Object.keys(bonds);
+        this.assets.stocks_companies = Object.keys(stocks);
     }
 }
 </script>

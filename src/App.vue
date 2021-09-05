@@ -3,16 +3,16 @@
 <template>
 
     <!-- [ sidebar ] -->
-    <Sidebar />
+    <Sidebar :page="page" />
 
     <section class = 'right-section'>
         <!-- [ header ] -->
-        <Header />
+        <Header @setPage="setPage" />
 
-        <!-- [ content ] -->
+        <!-- [ content: pages ] -->
         <Content>
-            <CaseStatus />
-            <Home />
+            <Home v-if="page=='Home'"  />
+            <CaseStatus v-if="page=='CaseStatus'" />
         </Content>
 
         <!-- [ footer ] -->
@@ -50,6 +50,20 @@ export default {
         // [ pages ]
         CaseStatus,
         Home,
+    },
+
+    // [ Data ]
+    data() {
+        return {
+            page: 'Home'
+        }
+    },
+
+    // [ Methods ]
+    methods: {
+        setPage( newpage ) {
+            this.page = newpage;
+        }
     }
 }
 </script>

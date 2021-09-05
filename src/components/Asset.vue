@@ -7,7 +7,7 @@
     <div class="asset">
         <div class="company-info">
             <div class="company-logo"></div>
-            <div class="company-name">Company Name</div>
+            <div class="company-name">{{ this.company }}</div>
         </div>
         <div :class="'quotes ' + this.status">
             <Ico type="arrow-right" /> 0.25$ / 0.20%
@@ -32,6 +32,10 @@ export default {
 
     // [ Properties ]
     props: {
+        company: {
+            type: String,
+            default: 'Company Name'
+        },
         status: {
             type: String,
             default: 'up'

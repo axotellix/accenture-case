@@ -48,7 +48,7 @@
             <p class="mark">
                 <span class = 'f-normal text-red'>Есть замечания</span>
             </p>
-            <Button class="button red">
+            <Button class="button red" @click="$emit('setPage', 'CaseStatus')">
                <Ico type="arrow-right" />
             </Button>
         </HeaderCard>
@@ -74,9 +74,14 @@ export default {
         Ico,
     },
 
-    // [ Properties ]
-    props: {
-        
+    // [ Emits ]
+    emits: ['setPage'],
+
+    // [ Methods ]
+    methods: {
+        setPage() {
+            this.$emit('setPage', 'CaseStatus');
+        }
     }
 }
 </script>

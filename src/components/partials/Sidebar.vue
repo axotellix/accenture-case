@@ -4,11 +4,10 @@
     <div class='sidebar'>
 
         <!-- personal data -->
-        <!-- <Avatar :src="this.person.avatar" :caption="this.person.caption" /> -->
-        <Avatar />
+        <Avatar :src="person.avatar" :name="person.name" />
 
         <!-- navigation bar -->
-        <Navbar />
+        <Navbar :page="this.page" />
 
         <!-- notifications -->
         <Notifications />
@@ -46,7 +45,26 @@ export default {
 
     // [ Properties ]
     props: {
-        msg: String
+        page: String
+    },
+
+    // [ data ] 
+    data() {
+        return {
+            person: {
+                name: '',
+                ava: ''
+            }
+        }
+    },
+
+    // [ on: create ]
+    async created() {
+        // get > person data
+        let req = await fetch('https://reworr.pythonanywhere.com/api/userinfo/user1');
+        let person = await req.json();
+
+        this.person.name = person.name;
     }
 }
 </script>

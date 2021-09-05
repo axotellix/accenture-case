@@ -7,7 +7,6 @@
     <div class="card-big" :colour="this.colour">
         <!-- card decor -->
         <div class="blur-circle circle-top"></div>
-        <div class="blur-circle circle-bottom"></div>
 
         <!-- card header -->
         <div class="card-header">
@@ -19,6 +18,9 @@
 
         <!-- card wrapper -->
         <div class="card-wrapper">
+            <!-- card decor -->
+            <div class="blur-circle circle-bottom"></div>
+
             <div class="card-content">
                 <slot name = 'content'></slot>
             </div>

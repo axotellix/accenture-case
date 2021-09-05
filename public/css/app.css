@@ -555,7 +555,7 @@ h6.caption {
 }
 
 .description {
-  max-width: 50%;
+  max-width: 60%;
   font-size: 1.6rem;
   font-weight: 300;
   font-style: italic;
@@ -1112,9 +1112,11 @@ footer {
 }
 
 .card-wrapper {
+  position: relative;
   width: 100%;
   height: auto;
   padding: var(--m-tiny);
+  overflow: hidden;
 }
 
 .card-footer {

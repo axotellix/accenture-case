@@ -7,7 +7,7 @@
         <div class='ava-img'></div>
 
         <!-- caption: person name -->
-        <p class='caption'>John Doe</p>
+        <p class='caption'>{{ this.name }}</p>
 
     </div>
 </template>
@@ -22,7 +22,8 @@ export default {
 
     // [ Properties ]
     props: {
-        msg: String
+        name: String,
+        ava: String,
     }
 }
 </script>
