@@ -23,5 +23,16 @@
 ## [Веб-сервер на python (bottle)](bottle_app.py)
 Небольшой веб-сервер, связывающий api.py с фронтендом для демонстрации решения (запущен на хостинге). 
 
-Запуск:<br>
+Запуск веб-сервера:<br>
 `python3 bottle_app.py`
+
+Для запуска проекта должен быть установлен Python 3, а также следующие модули: bottle, numpy, requests, math, json, sqlite3, time. Большая часть из них установлена по умолчанию с Python, остальные устанавливаются командами:
+
+`pip install bottle`<br>
+`pip install numpy`<br>
+`pip install requests`<br>
+<br>
+Также проект уже запущен на нашем сервере:<br>
+http://accenture.std-1368.ist.mospolytech.ru/<br>
+Отдельно бэкенд:<br>
+https://reworr.pythonanywhere.com/api/
