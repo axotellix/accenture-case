@@ -21,7 +21,7 @@
 - stocks (id INTEGER PRIMARY KEY, stocks TEXT, volatility REAL, caps REAL);
 
 ## [Веб-сервер на python (bottle)](bottle_app.py)
-Небольшой веб-сервер, связывающий api.py с фронтендом для демонстрации решения. 
+Небольшой веб-сервер, связывающий api.py с фронтендом для демонстрации решения (запущен на хостинге). 
 
-Для запуска:
+Запуск:<br>
 `python3 bottle_app.py`
