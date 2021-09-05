@@ -61,8 +61,10 @@
             <h2 class = 'heading'>Мой портфель</h2>
 
             <Card title = 'Облигации' colour = 'purple'>
-                <Asset status = 'up' />
-                <Asset status = 'down' />
+                <template v-slot:content>
+                    <Asset status = 'up' />
+                    <Asset status = 'down' />
+                </template>
             </Card>
         </article>
     </main>

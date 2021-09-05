@@ -13,14 +13,14 @@
         <div class="card-header">
             <h3 class="card-title">Облигации</h3>
             <p class="card-note">
-                Необходимо: <span>&#8381; 247 000</span>
+                <slot name = 'note'></slot>
             </p>
         </div>
 
         <!-- card wrapper -->
         <div class="card-wrapper">
             <div class="card-content">
-                <slot></slot>
+                <slot name = 'content'></slot>
             </div>
             <div class="card-footer">
                 <a href="" class="cta">
