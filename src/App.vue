@@ -2,6 +2,10 @@
 <!-- [ TEMPLATE ] -->
 <template>
 
+    <!-- [ blurred circled ] -->
+    <div class="back-blur-circle circle-top"></div>
+    <div class="back-blur-circle circle-bottom"></div>
+
     <!-- [ sidebar ] -->
     <Sidebar :page="page" />
 

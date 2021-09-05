@@ -607,6 +607,29 @@ a {
   fill: #FFFFFF;
 }
 
+.back-blur-circle {
+  position: absolute;
+  border-radius: 90px;
+  background: rgba(28, 45, 75, 0.82);
+  -webkit-filter: blur(128px);
+          filter: blur(128px);
+  z-index: -1;
+}
+
+.back-blur-circle.circle-top {
+  width: 100px;
+  height: 100px;
+  top: -13px;
+  right: -10px;
+}
+
+.back-blur-circle.circle-bottom {
+  width: 200px;
+  height: 200px;
+  bottom: -20px;
+  left: -20px;
+}
+
 .sidebar {
   position: fixed;
   width: 200px;

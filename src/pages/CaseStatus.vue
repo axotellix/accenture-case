@@ -24,13 +24,15 @@
                         <Infographics
                             colour="red"
                             subject="Акции"
-                            estimation=70
+                            :estimation="this.assets_count.bonds_total"
+                            :total="this.assets_count.total"
                             measurement_sign="%"
                         />
                         <Infographics
                             colour="purple"
                             subject="Облигации"
-                            estimation=30
+                            :estimation="this.assets_count.stocks_total"
+                            :total="this.assets_count.total"
                             measurement_sign="%"
                         />
                     </div>
@@ -42,13 +44,13 @@
                         <Infographics
                             colour="red"
                             subject="Акции"
-                            estimation=60
+                            :estimation="this.case_reference.bonds"
                             measurement_sign="%"
                         />
                         <Infographics
                             colour="purple"
                             subject="Облигации"
-                            estimation=40
+                            :estimation="this.case_reference.stocks"
                             measurement_sign="%"
                         />
                     </div>
@@ -70,15 +72,25 @@
             <!-- heading -->
             <h2 class = 'heading'>Подходит для Вашей цели</h2>
 
-            <Card title = 'Облигации' colour = 'purple'>
-                <template v-slot:note>
-                    Необходимо: <span>&#8381; 247 000</span>
-                </template>
-                <template v-slot:content>
-                    <Asset status = 'up' />
-                    <Asset status = 'down' />
-                </template>
-            </Card>
+            <div class="group flex flex-row gap-small">
+                <Card 
+                    :key="asset_type"
+                    v-for="asset_type in this.assets_to_buy"
+                    :title="this.assets_types[asset_type]" :colour="this.assets_colours[asset_type]"
+                >
+                    <template v-slot:note>
+                        Необходимо: <span>&#8381; 247 000</span>
+                    </template>
+                    <template v-slot:content>
+                        <Asset 
+                            :key="company" 
+                            :company="company"
+                            v-for="company in this.assets[asset_type]"
+                            status = 'up' 
+                        />
+                    </template>
+                </Card>
+            </div>
         </article>
     </main>
 
@@ -107,6 +119,29 @@ export default {
         return {
             case_status: 0,
             message: '',
+            to_buy: {},
+            assets_to_buy: [],
+            assets_types: {
+                "bonds": "Акции",
+                "stocks": "Облигации",
+            },
+            assets_colours: {
+                "bonds": "red",
+                "stocks": "purple",
+            },
+            assets: {
+                bonds: [],
+                stocks: [],
+            },
+            assets_count: {
+                total: 0,
+                bonds_total: 0, 
+                stocks_total: 0, 
+            },
+            case_reference: {
+                bonds: 0, 
+                stocks: 0, 
+            }
         }
     },
 
@@ -119,11 +154,66 @@ export default {
         // get > case summary
         let status  = case_summary.status;
         let message = case_summary.description;
+        let to_buy  = case_summary.to_buy; 
 
         this.case_status = status;
         this.message     = message;
+        this.to_buy      = to_buy;
 
-        console.log(status);
+        Object.keys(to_buy).forEach(asset => {
+            if( to_buy[asset] ) {
+                this.assets_to_buy.push(asset);
+            }
+        });
+
+        // get > bonds & stocks
+        let bonds  = case_summary.bonds;
+        let stocks = case_summary.stocks;
+
+        this.assets.bonds  = bonds;
+        this.assets.stocks = stocks;
+
+        // count > assets
+        req        = await fetch('https://reworr.pythonanywhere.com/api/userinfo/user1');
+        let person = await req.json();
+
+        let assets_total = person.assets;
+        let bonds_total  = person.bonds_count;
+        let stocks_total = person.stocks_count;
+        
+        let risk_profile = person.type;
+        let bonds_ref  = 50;
+        let stocks_ref = 50;
+
+        switch( risk_profile ) {
+            case 1:
+                bonds_ref  = 0;
+                stocks_ref = 100;
+                break;
+            case 2:
+                bonds_ref  = 20;
+                stocks_ref = 80;
+                break;
+            case 3:
+                bonds_ref  = 50;
+                stocks_ref = 50;
+                break;
+            case 4:
+                bonds_ref  = 30;
+                stocks_ref = 70;
+                break;
+            case 5:
+                bonds_ref  = 0;
+                stocks_ref = 100;
+                break;
+        }
+
+        this.assets_count.total        = assets_total;
+        this.assets_count.bonds_total  = bonds_total;
+        this.assets_count.stocks_total = stocks_total;
+
+        this.case_reference.bonds  = bonds_ref;
+        this.case_reference.stocks = stocks_ref;
     }
 }
 </script>
