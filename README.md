@@ -19,3 +19,9 @@
 - users (user_id INTEGER PRIMARY KEY, username TEXT NOT NULL UNIQUE, fullname TEXT, invest_type INTEGER);
 - assets (id INTEGER PRIMARY KEY, user_id INTEGER, stocks TEXT, count INTEGER, FOREIGN KEY(user_id) REFERENCES users(user_id));
 - stocks (id INTEGER PRIMARY KEY, stocks TEXT, volatility REAL, caps REAL);
+
+## [Веб-сервер на python (bottle)](bottle_app.py)
+Небольшой веб-сервер, связывающий api.py с фронтендом
+
+Для запуска:
+python3 bottle_app.py
