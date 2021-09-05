@@ -1,0 +1,110 @@
+
+// [ CARD ]
+.card-big { 
+    position: relative;
+    width: 500px; height: auto;
+}
+
+// [ card header: title + note ]
+.card-header { 
+    margin-bottom: varset('--m-tiny - 5px');
+    padding: 0 10px;
+    @include flex-align(space-between, flex-end);
+}
+.card-title { 
+    margin: 0;
+    font-family: $f-decor;
+    font-weight: $f-normal;
+    font-size: $fs-big;
+    color: $purple;
+}
+.card-note {
+    margin: 0;
+    font-size: $fs-tiny;
+    font-weight: $f-lite;
+    color: $inactive;
+
+    span {
+        margin-left: 3px;
+        color: $purple;
+        font-weight: $f-normal;
+    }
+}
+
+// [ card wrapper ]
+.card-wrapper { 
+    @extend .card;
+    
+    width: 100%; height: auto;
+    padding: var(--m-tiny);
+}
+
+// [ card footer ]
+.card-footer { 
+    width: 100%; height: auto;
+    padding-top: varset('--m-tiny + 10px');
+    padding-bottom: varset('--m-tiny - 7px');
+    
+    @include flex-align(flex-end, center);
+
+    .cta {
+        @include flex-align;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    .cta span {
+        margin-right: var(--m-tiny);
+        font-size: $fs-tiny;
+        color: $lite-purple;
+        font-weight: $f-lite;
+    }
+}
+
+
+// [ card colours ]
+  // card title
+.card-big[colour='red'] .card-title {
+    color: $red;
+}
+.card-big[colour='orange'] .card-title {
+    color: $orange;
+}
+.card-big[colour='purple'] .card-title {
+    color: $purple;
+}
+  // card decor: blur circles
+.card-big[colour='red'] .blur-circle  {
+    background: rgba(252, 62, 75, 0.09);
+}
+.card-big[colour='orange'] .blur-circle  {
+    background: rgba(255, 102, 102, 0.09);
+}
+.card-big[colour='purple'] .blur-circle  {
+    background: rgba(231, 109, 251, 0.09);
+}
+
+// [ card decor ]
+.card-big .blur-circle { 
+    position: absolute;
+    background: rgba(231, 109, 251, 0.09);
+    border-radius: 90px;;
+    filter: blur(30px);
+    z-index: -1;
+}
+.card-big .circle-top { 
+    width: 100px; height: 100px;
+    top: -13px; left: -10px;
+}
+.card-big .circle-bottom { 
+    width: 200px; height: 200px;
+    bottom: -20px; right: -20px;
+}
+
+
+
+
+
+
+

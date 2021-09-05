@@ -2,7 +2,7 @@
 
 <!-- [ ICONS ] -->
 <!-- icon: arrow --> 
-  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 14" id="ico-arrow">
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 14" id="ico-arrow">
     <g clip-path="url(#clip0)">
       <path d="M11.936 14L17.6583 7.84602C17.8914 7.57941 18.0068 7.24217 17.982 6.90104C17.9572 6.55991 17.794 6.23975 17.5244 6.00391C17.2304 5.79328 16.8608 5.69179 16.4891 5.7196C16.1174 5.7474 15.7706 5.90246 15.5176 6.15401L8.22003 14H11.936Z" fill="white"></path>
       <path d="M8.19025 0L15.4879 7.846C15.7428 8.09553 16.0906 8.24804 16.4622 8.27331C16.8338 8.29859 17.2024 8.19478 17.4946 7.98245C17.7645 7.75085 17.9307 7.43526 17.9609 7.09722C17.9911 6.75917 17.8834 6.42291 17.6583 6.154L11.9359 0L8.19025 0Z" fill="white"></path>
@@ -16,7 +16,7 @@
   </symbol>
 
 <!-- icon: plus --> 
-  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17" id="ico-plus">
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17" id="ico-plus">
     <path d="M16.936 10.2H10.564V16.5H6.712V10.2H0.34V6.6H6.712V0.299998H10.564V6.6H16.936V10.2Z" fill="white"></path>
   </symbol>
 

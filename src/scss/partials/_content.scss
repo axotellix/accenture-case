@@ -1,2 +1,14 @@
 
 // [ CONTENT ]
+main { 
+    width: 100%; height: auto;
+}
+
+article section {
+    margin-top: var(--m-small);
+}
+
+section.col-2 .group { 
+    display: inline-block;
+    margin-right: var(--m-small);
+}

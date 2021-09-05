@@ -4,4 +4,6 @@
     width: calc(100% - 200px); height: 100vh;
     margin-left: 200px;
     padding:     var(--m-big) var(--m-small);
+
+    @include flex-align(flex-start, flex-start, column);
 }

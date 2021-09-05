@@ -1,0 +1,63 @@
+
+
+<!-- [ TEMPLATE ] -->
+<template>
+
+    <!-- [ card ] -->
+    <div class="card-big" :colour="this.colour">
+        <!-- card decor -->
+        <div class="blur-circle circle-top"></div>
+        <div class="blur-circle circle-bottom"></div>
+
+        <!-- card header -->
+        <div class="card-header">
+            <h3 class="card-title">Облигации</h3>
+            <p class="card-note">
+                Необходимо: <span>&#8381; 247 000</span>
+            </p>
+        </div>
+
+        <!-- card wrapper -->
+        <div class="card-wrapper">
+            <div class="card-content">
+                <slot></slot>
+            </div>
+            <div class="card-footer">
+                <a href="" class="cta">
+                    <span>смотреть все</span>
+                    <Button :class="this.colour">
+                        <Ico type="arrow-right" />
+                    </Button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</template>
+
+
+<!-- [ SCRIPTS ] -->
+<script>
+import Button from './Button'
+import Ico from './Ico'
+
+export default {
+    // [ Component name ]
+    name: 'Card',
+
+    // [ Child components ]
+    components: {
+        Button,
+        Ico,
+    },
+
+    // [ Properties ]
+    props: {
+        colour: {
+            type: String,
+            default: 'purple'
+        },
+    }
+}
+</script>
+

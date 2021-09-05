@@ -1,0 +1,76 @@
+
+// [ INFOGRAPHICS ]
+.infographics-container {
+    @include flex-align(flex-start, flex-start, column);
+}
+
+.infographics {
+    max-width: max-content; height: auto; 
+    @include flex-align(flex-start, flex-end);
+
+    & ~ & { margin-top: var(--m-tiny) }
+}
+
+// [ estimation ]
+.estimation {
+    min-width: 60px; height: 60px;
+    margin: 0; padding: 10px;
+    margin-right: var(--m-tiny);
+    background: $purple;
+    font-size: $fs-medium;
+    font-weight: $f-bold;
+    color: $white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.25s;
+
+    @include flex-align;
+}
+.infographics[colour='red'] .estimation {
+    background: $red;
+    box-shadow: 0 0 18px 2px rgba($red, 0.2);
+}
+.infographics[colour='orange'] .estimation {
+    background: $orange;
+    box-shadow: 0 0 18px 2px rgba($orange, 0.2);
+}
+.infographics[colour='purple'] .estimation {
+    background: $purple;
+    box-shadow: 0 0 18px 2px rgba($purple, 0.2);
+}
+
+// [ progressbar ]
+.progressbar {
+    position: relative;
+    width: 250px; height: 8px;
+    top: -10px;
+    border-radius: 8px;
+    background: lighten($blur-blue, 10%);
+
+    &::before { 
+        content: attr(data-caption);
+        display: block;
+        color: $lite-purple;
+        font-size: $fs-tiny;
+        font-weight: $f-normal;
+
+        @include align(left, top, absolute, 0, -35px);
+    }
+}
+.activebar { 
+    height: 8px;
+    border-radius: 8px;
+    transition: all 0.4s;
+}
+.infographics[colour='red'] .activebar {
+    background: $red;
+    box-shadow: 0 0 18px 2px rgba($red, 0.2);
+}
+.infographics[colour='orange'] .activebar {
+    background: $orange;
+    box-shadow: 0 0 18px 2px rgba($orange, 0.2);
+}
+.infographics[colour='purple'] .activebar {
+    background: $purple;
+    box-shadow: 0 0 18px 2px rgba($purple, 0.2);
+}

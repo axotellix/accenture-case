@@ -1,0 +1,11 @@
+footer {
+  width: 100%;
+  height: 60px;
+  margin-top: var(--m-small);
+  background: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}

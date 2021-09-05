@@ -1,5 +1,17 @@
 
 // [ TYPOGRAPHY ]
+  // [ heading ]
+h2.heading {
+    margin: 0; 
+    margin-top: var(--m-big);
+    margin-bottom: varset('--m-small - 10px');
+    font-size:   $fs-big;
+    font-weight: $f-medium;
+    color: $grey;
+
+    &::after { content: '.' }
+}
+
   // [ small caption ]
 h6.caption {
     margin: 0; margin-bottom: 10px;
@@ -20,4 +32,14 @@ h6.caption {
 .text-key::after {
     content: ': ';
     margin-right: 10px;
+}
+
+  // [ short text ]
+.description {
+  max-width: 50%;
+    font-size: $fs-small;
+    font-weight: $f-lite;
+    font-style: italic;
+    color: $white;
+    line-height: 150%;
 }
