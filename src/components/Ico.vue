@@ -13,6 +13,11 @@
         <use xlink:href="/img/sprites.svg#ico-plus"></use>
     </svg>
 
+    <!-- ico: bell -->
+    <svg v-if="this.type == 'bell'" class="ico">
+        <use xlink:href="/img/sprites.svg#ico-bell"></use>
+    </svg>
+
 
 </template>
 

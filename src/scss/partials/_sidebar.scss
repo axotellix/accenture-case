@@ -50,8 +50,12 @@
     width: 100%; height: auto;
     padding: var(--m-tiny);
 }
+.navbar {
+    margin-bottom: varset('--m-small - 20px'); 
+}
   // menu items
 .navbar .menu-item, .notifications .menu-item {
+    position: relative;
     margin: 15px auto;
     list-style: none;
 
@@ -63,6 +67,16 @@
         color: lighten($inactive, 5%);      //FIX: hover effect
     }
     
+}
+.notifications .menu-item.new::after {
+    content: '';
+    display: block;
+    width: 4px; height: 4px;
+    background: $red;
+    border-radius: 4px;
+    box-shadow: 0 0 15px 2px rgba($red, 0.2);
+
+    @include align(right, top, absolute, -7px);
 }
 .navbar .menu-item.active a, .notifications .menu-item.active a {
     position: relative;
@@ -77,8 +91,22 @@
         border-radius: 5px;
         z-index: -1;
 
-        @include align(left, center, absolute, -13px)
+        @include align(left, center, absolute, -13px);
     }
+}
+.notifications-title {
+    font-family: $f-decor;
+    font-weight: $f-normal;
+    font-size: $fs-small;
+    color: $lite-purple;
+    @include flex-align;
+}
+.notifications-title .ico {
+    max-width: 16px;
+    width: 16px;
+    min-width: 16px;
+    margin: 0;
+    margin-right: 8px;
 }
 
 
