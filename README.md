@@ -1,4 +1,4 @@
-# Описание проекта:
+# Описание проекта
 
 ![image](https://user-images.githubusercontent.com/47640060/132115529-d35223b0-8c29-4772-896e-04ff3b57024b.png)
 
