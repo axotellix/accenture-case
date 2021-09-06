@@ -7,7 +7,7 @@
         <Avatar :src="person.avatar" :name="person.name" />
 
         <!-- navigation bar -->
-        <Navbar :page="this.page" />
+        <Navbar :page="this.page" @setPage="$emit('setPage', 'Home')" />
 
         <!-- notifications -->
         <Notifications />
@@ -47,6 +47,9 @@ export default {
     props: {
         page: String
     },
+
+    // [ emits ]
+    emits: ['setPage'],
 
     // [ data ] 
     data() {

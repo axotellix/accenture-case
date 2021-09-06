@@ -7,11 +7,12 @@
         <ul>
             <li class = 'menu-item' 
                 :class="this.page == 'Home' ? 'active' : ''"
+                @click="$emit('setPage', 'Home')"
             >
-                <a href="">Мой портфель</a>
+                Мой портфель
             </li>
-            <li class = 'menu-item' :class="this.page == 'Overview' ? 'active' : ''"><a href="">Обзор активов</a></li>
-            <li class = 'menu-item' :class="this.page == 'Profile' ? 'active' : ''"><a href="">Мой профиль</a></li>
+            <li class = 'menu-item' :class="this.page == 'Overview' ? 'active' : ''">Обзор активов</li>
+            <li class = 'menu-item' :class="this.page == 'Profile' ? 'active' : ''">Мой профиль</li>
         </ul>
 
     </nav>
@@ -30,16 +31,8 @@ export default {
         page: String
     },
 
-    data() {
-        //next_page: ''
-    },
-
-    // [ Methods ]
-    methods: {
-        setPage() {
-            this.$emit('setPage', 'CaseStatus');
-        }
-    }
+    // [ emits ]
+    emits: ['setPage']
 }
 </script>
 

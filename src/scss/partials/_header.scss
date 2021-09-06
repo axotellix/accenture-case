@@ -5,6 +5,7 @@
     margin-bottom: var(--m-tiny);
     flex-wrap: wrap;
     gap: var(--m-tiny);
+    z-index: 1;
 
     @include flex-align(flex-start, flex-start)
 }

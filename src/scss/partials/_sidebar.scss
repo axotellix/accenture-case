@@ -58,15 +58,17 @@
     position: relative;
     margin: 15px auto;
     list-style: none;
+    font-size: $fs-tiny;
+    color: $inactive;
+    cursor: pointer;
+    transition: color 0.25s;
 
-    a { 
-        font-size: $fs-tiny;
-        color: $inactive;
-    }
-    a:hover {
-        color: lighten($inactive, 5%);      //FIX: hover effect
-    }
-    
+    &:hover {
+        color: darken($white, 10%);      
+    }    
+    &:active {
+        color: $inactive;      
+    }    
 }
 .notifications .menu-item.new::after {
     content: '';
@@ -78,12 +80,14 @@
 
     @include align(right, top, absolute, -7px);
 }
-.navbar .menu-item.active a, .notifications .menu-item.active a {
+.navbar .menu-item.active, .notifications .menu-item.active {
     position: relative;
     color: $lite-purple;
     font-weight: $f-medium;
 
     &::before {
+        @extend .glow-shadow-purple;
+
         content: '';
         display: block;
         width: 35px; height: 35px;
@@ -116,4 +120,11 @@
     color: $red;
     margin: 0 auto;
     text-align: center;
+
+    &:hover {
+        color: lighten($red, 5%);
+    }
+    &:active {
+        color: $red;
+    }
 }

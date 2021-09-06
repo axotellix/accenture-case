@@ -7,7 +7,7 @@
     <div class="back-blur-circle circle-bottom"></div>
 
     <!-- [ sidebar ] -->
-    <Sidebar :page="page" />
+    <Sidebar :page="page" @setPage="setPage" />
 
     <section class = 'right-section'>
         <!-- [ header ] -->
@@ -66,6 +66,7 @@ export default {
     // [ Methods ]
     methods: {
         setPage( newpage ) {
+            console.log(newpage);
             this.page = newpage;
         }
     }

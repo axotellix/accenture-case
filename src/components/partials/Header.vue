@@ -76,13 +76,6 @@ export default {
 
     // [ Emits ]
     emits: ['setPage'],
-
-    // [ Methods ]
-    methods: {
-        setPage() {
-            this.$emit('setPage', 'CaseStatus');
-        }
-    }
 }
 </script>
 

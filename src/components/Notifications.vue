@@ -12,8 +12,8 @@
 
         <!-- navigation items -->
         <ul>
-            <li class = 'menu-item new'><a href="">Рекомендации</a></li>
-            <li class = 'menu-item'><a href="">Новости</a></li>
+            <li class = 'menu-item new'>Рекомендации</li>
+            <li class = 'menu-item'>Новости</li>
         </ul>
 
     </nav>

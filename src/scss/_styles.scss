@@ -29,7 +29,9 @@ a {
     border-radius: 90px;
     background: rgba(28, 45, 75, 0.5);
     filter: blur(80px);
-    z-index: -1;
+    z-index: 0;
+    user-select: none;
+    pointer-events: none;
 }
 .back-blur-circle.circle-top { 
     border-radius: 650px;
