@@ -25,17 +25,19 @@ a {
 
 // [ blurred circles ]
 .back-blur-circle { 
-    position: absolute;
-    border-radius: 90px;;
-    background: rgba(28, 45, 75, 0.82);
-    filter: blur(128px);
+    position: fixed;
+    border-radius: 90px;
+    background: rgba(28, 45, 75, 0.5);
+    filter: blur(80px);
     z-index: -1;
 }
 .back-blur-circle.circle-top { 
-    width: 100px; height: 100px;
-    top: -13px; right: -10px;
+    border-radius: 650px;
+    width: 650px; height: 650px;
+    top: -175px; right: -175px;
 }
 .back-blur-circle.circle-bottom { 
-    width: 200px; height: 200px;
-    bottom: -20px; left: -20px;
+    border-radius: 400px;
+    width: 400px; height: 400px;
+    bottom: -100px; left: -200px;
 }
