@@ -78,4 +78,3 @@ export default {
     emits: ['setPage'],
 }
 </script>
-
