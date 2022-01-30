@@ -6,12 +6,12 @@
     <div class="infographics" :colour="this.colour">
         <!-- estimation -->
         <div class="estimation">
-            {{ Math.round(this.estimation / this.total * 100) + this.measurement_sign }}
+            {{ Math.round((this.estimation || 0) / (this.total || 100) * 100) + (this.measurement_sign || '%') }}
         </div>
 
         <!-- progress bar -->
         <div class="progressbar" :data-caption="this.subject">
-            <div class = 'activebar' :style="'width:' + this.estimation / this.total * 100 + '%'"></div>
+            <div class = 'activebar' :style="'width:' + (this.estimation || 0) / (this.total || 100) * 100 + '%'"></div>
         </div>
     </div>
 

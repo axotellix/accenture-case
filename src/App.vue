@@ -6,8 +6,11 @@
     <div class="back-blur-circle circle-top"></div>
     <div class="back-blur-circle circle-bottom"></div>
 
+    <!-- [ modal: select user ] -->
+    <SelectUser v-if="show_modal" :active_user="active_user" @setUser="setUser" @selectUserModal="selectUserModal" />
+
     <!-- [ sidebar ] -->
-    <Sidebar :page="page" @setPage="setPage" />
+    <Sidebar :page="page" :active_user="active_user" @setPage="setPage" @selectUserModal="selectUserModal" :key="active_user" />
 
     <section class = 'right-section'>
         <!-- [ header ] -->
@@ -15,8 +18,8 @@
 
         <!-- [ content: pages ] -->
         <Content>
-            <Home v-if="page=='Home'"  />
-            <CaseStatus v-if="page=='CaseStatus'" />
+            <Home v-if="page=='Home'" :active_user="active_user" :key="active_user" />
+            <CaseStatus v-if="page=='CaseStatus'" :active_user="active_user" :key="active_user" />
         </Content>
 
         <!-- [ footer ] -->
@@ -40,6 +43,9 @@ import Content from './components/partials/Content'
 import CaseStatus from './pages/CaseStatus'
 import Home from './pages/Home'
 
+// [ Components ]
+import SelectUser from './components/SelectUser'
+
 export default {
     // [ Component name ]
     name: 'App',
@@ -54,21 +60,34 @@ export default {
         // [ pages ]
         CaseStatus,
         Home,
+
+        // [ other components ]
+        SelectUser
     },
 
     // [ Data ]
     data() {
         return {
-            page: 'Home'
+            page: 'Home',
+            active_user: 'user1',
+            show_modal: false
         }
     },
 
     // [ Methods ]
     methods: {
         setPage( newpage ) {
-            console.log(newpage);
             this.page = newpage;
-        }
+        },
+        setUser( user ) {
+            this.active_user = user;
+            setTimeout(() => {
+                this.show_modal = false;
+            }, 150);
+        },
+        selectUserModal( open ) {
+            this.show_modal = open;
+        },
     }
 }
 </script>

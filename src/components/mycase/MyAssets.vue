@@ -57,15 +57,13 @@ export default {
     // [ on: create ]
     async created() {
         // get > person data
-        let req    = await fetch('https://reworr.pythonanywhere.com/api/userinfo/user1');
+        let req    = await fetch('https://axotellix.pythonanywhere.com/api/userinfo/user1');
         let person = await req.json();
 
         // get > case summary
-
-        // get > bonds & stocks
-        let assets_total = person.assets;
-        let bonds_total  = person.bonds_count;
-        let stocks_total = person.stocks_count;
+        let assets_total = person.assets_total;
+        let bonds_total  = person.bonds_total;
+        let stocks_total = person.stocks_total;
 
         this.assets_count.total        = assets_total;
         this.assets_count.bonds_total  = bonds_total;

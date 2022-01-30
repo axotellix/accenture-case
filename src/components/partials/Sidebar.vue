@@ -4,7 +4,7 @@
     <div class='sidebar'>
 
         <!-- personal data -->
-        <Avatar :src="person.avatar" :name="person.name" />
+        <Avatar :src="person.avatar" :name="person.name" :active_user="this.active_user" @click="$emit('selectUserModal', 'true')" />
 
         <!-- navigation bar -->
         <Navbar :page="this.page" @setPage="$emit('setPage', 'Home')" />
@@ -45,11 +45,12 @@ export default {
 
     // [ Properties ]
     props: {
-        page: String
+        page: String,
+        active_user: String
     },
 
     // [ emits ]
-    emits: ['setPage'],
+    emits: ['setPage', 'selectUserModal'],
 
     // [ data ] 
     data() {
@@ -64,7 +65,7 @@ export default {
     // [ on: create ]
     async created() {
         // get > person data
-        let req = await fetch('https://reworr.pythonanywhere.com/api/userinfo/user1');
+        let req = await fetch('https://axotellix.pythonanywhere.com/api/userinfo/' + this.active_user);
         let person = await req.json();
 
         this.person.name = person.name;

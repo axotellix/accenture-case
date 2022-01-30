@@ -4,10 +4,10 @@
     <div class='avatar'>
 
         <!-- img: person avatar -->
-        <div class='ava-img'></div>
+        <div class='ava-img'><img :src="'/img/avatars/' + active_user + '.png'" alt="avatar"></div>
 
         <!-- caption: person name -->
-        <p class='caption'>{{ this.name }}</p>
+        <p class='caption'>{{ this.name || 'Name Name' }}</p>
 
     </div>
 </template>
@@ -22,7 +22,14 @@ export default {
 
     // [ Properties ]
     props: {
-        name: String,
+        name: {
+            type: String,
+            default: 'Name Name'
+        },
+        active_user: {
+            type: String,
+            default: 'user1'
+        },
         ava: String,
     }
 }

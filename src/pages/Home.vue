@@ -69,6 +69,10 @@ export default {
         MyAssets,
     },
 
+    props: {
+        active_user: String,
+    },
+
     // [ data ]
     data() {
         return {
@@ -84,18 +88,18 @@ export default {
     // [ on: create ]
     async created() {
         // get > person data
-        let req = await fetch('https://reworr.pythonanywhere.com/api/userinfo/user1');
+        let req = await fetch('https://axotellix.pythonanywhere.com/api/userinfo/' + this.active_user);
         let person = await req.json();
 
         // get > bonds & stocks
-        let bonds  = person.bonds;
-        let stocks = person.stocks;
+        let bonds  = person?.bonds || {};
+        let stocks = person?.stocks || {};
 
         this.assets.bonds  = bonds;
         this.assets.stocks = stocks;
 
-        this.assets.bonds_companies  = Object.keys(bonds);
-        this.assets.stocks_companies = Object.keys(stocks);
+        this.assets.bonds_companies  = Object.keys(bonds) ?? [];
+        this.assets.stocks_companies = Object.keys(stocks) ?? [];
     }
 }
 </script>

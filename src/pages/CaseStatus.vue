@@ -114,6 +114,11 @@ export default {
         Asset,
     },
 
+    // [ Properties ]
+    props: {
+        active_user: String
+    },
+
     // [ data ]
     data() {
         return {
@@ -148,8 +153,10 @@ export default {
     // [ on: create ]
     async created() {
         // get > person data
-        let req  = await fetch('https://reworr.pythonanywhere.com/api/rebalance/user1');
+        let req  = await fetch('https://axotellix.pythonanywhere.com/api/rebalance/' + this.active_user);
         let case_summary = await req.json();
+
+        console.log(case_summary);
 
         // get > case summary
         let status  = case_summary.status;
@@ -174,12 +181,12 @@ export default {
         this.assets.stocks = stocks;
 
         // count > assets
-        req        = await fetch('https://reworr.pythonanywhere.com/api/userinfo/user1');
+        req        = await fetch('https://axotellix.pythonanywhere.com/api/userinfo/' + this.active_user);
         let person = await req.json();
 
-        let assets_total = person.assets;
-        let bonds_total  = person.bonds_count;
-        let stocks_total = person.stocks_count;
+        let assets_total = person.assets_total;
+        let bonds_total  = person.bonds_total;
+        let stocks_total = person.stocks_total;
         
         let risk_profile = person.type;
         let bonds_ref  = 50;

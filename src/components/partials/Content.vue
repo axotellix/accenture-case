@@ -13,7 +13,7 @@ export default {
 
     // [ Properties ]
     props: {
-        msg: String
+        msg: String,
     }
 }
 </script>
